@@ -21,9 +21,6 @@ use App\Http\Controllers\AccessTokenController;
 //     return $request->user();
 // });
 
-<<<<<<< HEAD
-#### user register API routes for application
-=======
  ################# Implementing user authentication (login and register) and profile update feature. ################
 
 ## Implementing user authentication (login and register) and profile update feature.
@@ -31,7 +28,6 @@ use App\Http\Controllers\AccessTokenController;
 ## Tasks include setting up authentication endpoints, implementing user registration functionality, and allowing users to update their profile information.
 
 
->>>>>>> 648d6f20cfc034241f4437a78ae2cf745ca8cbcc
 Route::prefix("/v1/oauth")->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AccessTokenController::class, 'login']);

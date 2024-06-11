@@ -12,4 +12,6 @@ enum UserStatusConstant: string
     
     public const INVITED = 'invited';
 
+    public const DELETED = 'deleted';
+
 }

@@ -21,14 +21,13 @@ use App\Http\Controllers\AccessTokenController;
 //     return $request->user();
 // });
 
-
+#### user register API routes for application
 Route::prefix("/v1/oauth")->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AccessTokenController::class, 'login']);
 });
 
+#### user profile API routes for application
 Route::middleware('auth:api')->prefix('/v1/users')->group(function () {
-
     Route::put("/{user_id}/update-profile", [AuthController::class, "updateUserProfile"]);
-
 });

@@ -27,4 +27,25 @@ class BaseUserFormRequest extends FormRequest
     {
         return ["required", "min:2", "max:50", "regex:/^[a-zA-Z0-9' ^’.-]+$/u"];
     }
+
+    public function getToken()
+    {
+        $header = $this->headers->get('Authorization');
+
+        if (strpos($header, 'Bearer ') === 0) {
+            $token = substr($header, 7);
+
+            // Convert the token into values and keys
+            $tokenParts = explode('.', $token);
+            $values = base64_decode($tokenParts[1]);
+            $keys = base64_decode($tokenParts[0]);
+
+            return  [
+                'values' => json_decode($values, true),
+                'keys' => json_decode($keys, true),
+            ];
+
+            return null;
+        }
+    }
 }

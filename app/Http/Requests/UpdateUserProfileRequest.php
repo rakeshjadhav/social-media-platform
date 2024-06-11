@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Constants\UserStatusConstant;
-use Kloo\Infrastructure\Requests\BaseFormRequest;
 use App\Traits\MergeRequestParamForValidation;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;

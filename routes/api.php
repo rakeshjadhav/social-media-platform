@@ -35,5 +35,6 @@ Route::prefix("/v1/oauth")->group(function () {
 
 #### user profile API routes for application
 Route::middleware('auth:api')->prefix('/v1/users')->group(function () {
-    Route::put("/{user_id}/update-profile", [AuthController::class, "updateUserProfile"]);
+Route::put("/{user_id}/update-profile", [AuthController::class, "updateUserProfile"]);
+
 });

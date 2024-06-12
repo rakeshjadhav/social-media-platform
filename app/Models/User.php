@@ -52,6 +52,6 @@ class User extends Authenticatable
 
     public function scopeActiveUserType($query, string $id)
     {
-        return $query->where("id", $id)->where("status", UserStatusConstant::ACTIVE);
+        return $query->where("id", $id);
     }
 }

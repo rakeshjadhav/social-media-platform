@@ -1,66 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Social Media Platform API Documentation
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## User Registration Endpoint
 
-## About Laravel
+### Endpoint
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**URL:** `http://127.0.0.1:8000/api/v1/oauth/register`  
+**Method:** `POST`  
+**Content-Type:** `application/json`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Request Body
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The request body must be in JSON format and contain the following fields:
 
-## Learning Laravel
+- `name` (string): The full name of the user.
+- `email` (string): The email address of the user.
+- `password` (string): The password for the user account.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### Example Request Body
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```json
+{
+    "name": "Rakesh Ramesh Jadhav",
+    "email": "rakeshjadhav939881@gmail.com",
+    "password": "Test123456"
+}
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## User Login Endpoint
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Endpoint
 
-### Premium Partners
+**URL:** `http://localhost:8000/api/v1/oauth/login`  
+**Method:** `POST`  
+**Content-Type:** `application/json`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Request Body
 
-## Contributing
+The request body must be in JSON format and contain the following fields:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+- `username` (string): The email address of the user.
+- `password` (string): The password for the user account.
+- `grant_type`: `password`,
+-  `client_id`: `9c4378bc-2b50-4817-b1a2-c64929ce30e0`,
+-  `client_secret`: ``,
+ - `scope`: `*`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### Example Request Body
 
-## Security Vulnerabilities
+```json
+{
+  "result": {
+    "id": "e8ce3f66-52ee-4faa-96cc-0393e18795bb",
+    "name": "Rakesh Ramesh Jadhav",
+    "email": "rakeshjadhav939881@gmail.com",
+    "email_verified_at": null,
+    "status": "active",
+    "created_at": "2024-06-12T02:53:15.000000Z",
+    "updated_at": "2024-06-12T02:53:15.000000Z",
+    "deleted_at": null,
+    "token_type": "Bearer",
+    "expires_in": 31536000,
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbG...................",
+    "refresh_token": "def502004a71aa------2"
+  }
+}
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
